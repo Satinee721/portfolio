@@ -3,17 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satinee Ghiulezian - Engineer, Problem Solver, Storyteller</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJ8962BQ8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <title>Satinee Ghiulezian - Engineer, Problem Solver, Story Teller</title>
 
-      gtag('config', 'G-1MJ8962BQ8');
-    </script>
-        <!-- Favicons -->
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -47,20 +39,22 @@
             overflow-x: hidden;
         }
 
-
-        /* LANDING SECTION */
+        /* ========== LANDING ANIMATION (ORIGINAL) ========== */
         #landing {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             background: var(--bg-main);
             transition: all 0.8s ease;
+            z-index: 1000;
         }
    
-        /* DOMAIN ANIMATION */
         .domain-wrapper {
             position: relative;
             height: 150px;
@@ -86,21 +80,23 @@
         .satghi-text {
             display: inline-block;
             position: relative;
+            animation: satghiFade 0.8s ease-out 1.8s forwards;
         }
 
-        @keyframes domainAppear {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes wwwcomFade {
+        @keyframes satghiFade {
             to {
                 opacity: 0;
             }
         }
 
-        /* NAME PARTS THAT EMERGE FROM SATGHI */
+        @keyframes domainAppear {
+            to { opacity: 1; }
+        }
+
+        @keyframes wwwcomFade {
+            to { opacity: 0; }
+        }
+
         .name-container {
             position: absolute;
             top: 0;
@@ -125,7 +121,7 @@
         .sat-bounce, .ghi-bounce {
             opacity: 0;
             display: inline-block;
-            color: var(--pink-dark); /* SOLID COLOR - not gradient */
+            color: var(--pink-dark);
         }
 
         .sat-bounce {
@@ -136,917 +132,519 @@
             animation: ghiBounceOut 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.6s forwards;
         }
 
-/* Add solid color to fill-in letters too */
-.inee-fill, .ulezian-fill {
-    opacity: 0;
-    display: inline-block;
-    color: var(--pink-dark); /* SOLID COLOR */
-    animation: fillIn 0.5s ease-out 3.8s forwards;
-}
-        @keyframes satBounceOut {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    40% {
-        transform: translateX(-120px) scale(1.1);
-        text-shadow: 0 0 20px var(--pink-glow);
-    }
-    55% {
-        transform: translateX(-90px) rotate(-5deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-10x) rotate(0deg); /* Fine-tune this */
-    }
-}
-
-@keyframes ghiBounceOut {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    40% {
-        transform: translateX(120px) scale(1.1);
-        text-shadow: 0 0 20px var(--pink-glow);
-    }
-    55% {
-        transform: translateX(90px) rotate(5deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(5px) rotate(0deg); /* Fine-tune this */
-    }
-}
-
         .inee-fill, .ulezian-fill {
             opacity: 0;
             display: inline-block;
+            color: var(--pink-dark);
             animation: fillIn 0.5s ease-out 3.8s forwards;
         }
 
+        @keyframes satBounceOut {
+            0% { opacity: 1; transform: translateX(0); }
+            40% { transform: translateX(-120px) scale(1.1); text-shadow: 0 0 20px var(--pink-glow); }
+            55% { transform: translateX(-90px) rotate(-5deg); }
+            100% { opacity: 1; transform: translateX(-10px) rotate(0deg); }
+        }
+
+        @keyframes ghiBounceOut {
+            0% { opacity: 1; transform: translateX(0); }
+            40% { transform: translateX(120px) scale(1.1); text-shadow: 0 0 20px var(--pink-glow); }
+            55% { transform: translateX(90px) rotate(5deg); }
+            100% { opacity: 1; transform: translateX(5px) rotate(0deg); }
+        }
+
         @keyframes fillIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Make domain SATGHI fade as bounce starts */
-        .satghi-text {
-            animation: satghiFadeOut 0.5s ease-out 2.6s forwards;
+        .tagline {
+            font-size: 1.4em;
+            color: var(--pink-medium);
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 4.5s forwards;
+            margin-top: 20px;
         }
 
-        @keyframes satghiFadeOut {
-            to {
-                opacity: 0;
-            }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* ========== MAIN CONTENT (NEW DESIGN) ========== */
+        #main-content {
+            min-height: 100vh;
+            background: var(--bg-main);
+            padding: 2rem 2rem 2rem 2rem;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Slot Machine */
+        .hero-header {
+            display:flex;
+            align-items: center;
+            gap:20px;
+            background:rgba(255,255,255,0.98);
+            backdrop-filter:blur(10px);
+            padding: 15px 15px;
+            border-bottom: 1px solid rgba(252, 133, 174, 0.2);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 0 auto 2rem auto;
         }
 
         .profile-photo {
-            width: 200px;
-            height: 200px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            opacity: 0;
-            animation: photoFadeIn 1s ease-out 4.3s forwards;
-            filter: drop-shadow(0 10px 30px var(--pink-glow));
-            transition: all 0.8s ease;
             object-fit: contain;
+            filter: drop-shadow(0 5px 15px var(--pink-glow));
+            flex-shrink: 0;
         }
-
-        @keyframes photoFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .header-content{
+            flex:1;
+            text-align: center;
         }
+        
+        .hero-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;  
+        }   
 
-        /* SLOT MACHINE TAGLINE */
-        .tagline-container {
-            font-size: 1.3em;
-            color: var(--pink-text);
-            margin-top: 20px;
+        .slot-machine-container {
             display: flex;
-            gap: 10px;
             justify-content: center;
-            align-items: center;
-            height: 40px;
-            overflow: hidden;
-            opacity: 0;
-            animation: taglineAppear 0.5s ease-out 4.5s forwards;
-            transition: all 0.8s ease;
+            gap: 8px;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            font-weight: 500;
+            color: var(--pink-medium);
         }
 
-        @keyframes taglineAppear {
-            to {
-                opacity: 1;
-            }
-        }
-
-       
 
         .slot-column {
-            display: inline-block;
-            height: 40px;
-            overflow: hidden;
+           display: inline-flex;
             position: relative;
+            height: 1.5rem;
+            overflow: hidden;
+            min-width: 120px;
+            text-align: center;
+            flex-direction: column-reverse;
+            align-content: stretch;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .divider {
+            color: var(--pink-medium);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
         }
 
         .slot-reel {
             display: flex;
             flex-direction: column;
-            animation: spin 1.5s ease-in-out 5s forwards;
+            animation: spin 3s ease-in-out 6.5s forwards;
+            position: relative;
+            
+        }
+
+        .slot-word {
+            height: 1.5rem;  /* Match the column height */
+            line-height: 1.5rem;  /* Center text vertically */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+
+        /* Different speeds for each column */
+        .slot-column:nth-child(1) .slot-reel {
+            animation-duration: 2.5s;
+        }
+
+        .slot-column:nth-child(3) .slot-reel {
+            animation-duration: 2.8s;
+        }
+
+        .slot-column:nth-child(5) .slot-reel {
+            animation-duration: 3.2s;
         }
 
         @keyframes spin {
             0% {
                 transform: translateY(0);
             }
+            80% {
+                transform: translateY(-7.5rem);  /* 1.5rem × 5 positions */
+            }
             100% {
-                transform: translateY(-200px);
+                transform: translateY(-7.5rem);
             }
         }
 
-        .slot-word {
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 500;
+        .education {
+            font-size: 1.0rem;
+            color: #666;
+            margin-top: 1.2rem;
         }
 
-        .divider {
-            color: var(--pink-light);
-            font-weight: 300;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            opacity: 0;
-            animation: scrollAppear 1s ease-out 6.8s forwards, bounce 2s ease-in-out 7.8s infinite;
-            color: var(--pink-dark);
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-        }
-
-        
-
-        @keyframes scrollAppear {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* FROZEN HEADER */
-        .frozen-header {
-            position: fixed;
-             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border-bottom: 1px solid rgba(252, 133, 174, 0.2);
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(-100%);
-            transition: all 0.8s ease;
-        }
-
-        .frozen-header.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .frozen-header .header-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: CONTAIN;
-            filter: drop-shadow(0 5px 15px var(--pink-glow));
-        }
-
-        .frozen-header .header-content {
-            flex: 1;
-}
-
-        .frozen-header .header-name {
-            font-size: 1.5em;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .frozen-header .tagline-static {
-            font-size: 0.9em;
-            color: var(--pink-text);
-            margin-top: 2px;
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: fixed;
-            left: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 999;
-            opacity: 0;
-            transition: all 0.8s ease;
-        }
-
-        nav.visible {
-            opacity: 1;
-        }
-
-       
-
-        nav a {
-            display: block;
-            margin: 25px 0;
-            color: #d1a3b8;
-            text-decoration: none;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
+        /* Video Hero */
+        .video-container {
             position: relative;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(247, 37, 133, 0.2);
         }
 
-        nav a::before {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: transparent;
-            transition: all 0.3s;
-        }
-
-        nav a.active {
-            color: var(--pink-dark);
-            font-weight: 700;
-            font-size: 1em;
-        }
-
-        nav a.active::before {
-            background: var(--pink-dark);
-        }
-
-        nav a:hover {
-            color: var(--pink-light);
-        }
-        /* POEM STYLING */
-         /* CONTENT SECTIONS */
-        .content-wrapper {
-            margin-top: 0;
-            transition: margin-top 0.8s ease;
-        }
-
-        .content-wrapper.with-header {
-            margin-top: 120px;
-        }
-
-        section {
-            min-height: 100vh;
-            padding: 100px 20% 100px 20%;
-            background: var(--bg-main);
-        }
-
-        section:nth-child(even) {
-            background: var(--bg-tint);
-        }
-
-        h2 {
-            font-size: 2.5em;
-            color: var(--pink-dark);
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--pink-light), var(--pink-dark));
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: 1.8em;
-            color: var(--pink-text);
-            margin: 40px 0 20px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #444;
-        }
-
-        ul {
-            margin: 20px 0 20px 30px;
-            line-height: 2;
-        }
-
-        li {
-            margin: 10px 0;
-            color: #555;
-        }
-        .poem {
-            background: var(--bg-tint);
-            padding: 2rem;
-            border-left: 4px solid var(--pink-medium);
-            margin: 2rem 0;
-            font-style: italic;
-            line-height: 2;
-        }
-
-        .poem-title {
-            font-weight: 700;
-            font-style: normal;
-            color: var(--pink-dark);
-            margin-bottom: 1rem;
-        }
-
-        .copyright {
-            font-size: 0.9em;
-            color: var(--text-light);
-            margin-top: 1rem;
-            font-style: normal;
-        }
-
-        /* PHILOSOPHY SECTION */
-        .philosophy-principle {
-            margin: 2.5rem 0;
-        }
-
-        .philosophy-principle h4 {
-            font-size: 1.4em;
-            color: var(--pink-dark);
-            margin-bottom: 0.8rem;
-        }
-
-        /* PROJECTS SECTION */
-        .project {
-            margin: 4rem 0;
-            padding: 2rem 0;
-            border-top: 2px solid var(--bg-tint);
-        }
-
-        .project h3 {
-            font-size: 2em;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .project-images img {
+        .video-container video {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        /* Add to your existing .project-images img styles */
-        .project-images img {
-            cursor: zoom-in; /* Indicates the image is clickable */
-            transition: 0.3s;
-        }
-
-        .project-images img:hover {
-            opacity: 0.8;
-        }
-
-        /* The Modal (background) */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 9999; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(0,0,0,0.9); /* Dark overlay */
-            cursor: zoom-out;
-        }
-
-        /* Modal Content (The Image) */
-        .modal-content {
-            margin: auto;
+            max-height: 400px;
             display: block;
-            max-width: 90%;
-            max-height: 90vh;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: 4px;
-            animation: zoomIn 0.3s ease-out;
+            object-fit:fill;
         }
 
-        /* Close Button */
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
+        .video-caption {
+            padding: 1.5rem 2rem;
+            background: var(--bg-tint);
+            border-top: 3px solid var(--pink-medium);
         }
 
-        @keyframes zoomIn {
-            from { transform: translateY(-50%) scale(0.7); opacity: 0; }
-            to { transform: translateY(-50%) scale(1); opacity: 1; }
-        }
-
-        .project-video {
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-/* FIXED FOOTER */
-        #contact-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid rgba(252, 133, 174, 0.2);
-            z-index: 998;
-            opacity: 0;
-            transform: translateY(100%);
-            transition: all 0.8s ease;
-        }
-
-        #contact-footer.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        #contact-footer a {
+        .video-caption h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
             color: var(--pink-dark);
+        }
+
+        .video-caption p {
+            margin: 0;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .expertise-card {
+            padding: 2rem;
+            background: white;
+            border: 2px solid #ffd6e7;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            border-color: var(--pink-medium);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px var(--pink-glow);
+        }
+
+        .expertise-card h3 {
+            margin: 0 0 1rem 0;
+            color: var(--pink-dark);
+            font-size: 1.3rem;
+        }
+
+        .expertise-card p {
+            margin: 0.5rem 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Mission Statement */
+        .mission-statement {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 1.5rem 2rem;
+            background: var(--bg-tint);
+            border-left: 5px solid var(--pink-medium);
+            border-radius: 4px;
+        }
+
+        .mission-statement p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            font-style: italic;
+        }
+
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--pink-medium);
+            color: white;
             text-decoration: none;
-            font-weight: 500;
-            margin: 0 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px var(--pink-glow);
+        }
+
+        .cta-button:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--pink-glow);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem 2rem 2rem;
+            color: #666;
+            border-top: 1px solid #ffd6e7;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: var(--pink-medium);
+            text-decoration: none;
             transition: color 0.3s ease;
-            border-bottom: none;
         }
 
-        #contact-footer a:hover {
-            color: var(--pink-light);
+        footer a:hover {
+            color: var(--pink-dark);
+            text-decoration: underline;
         }
 
-        #contact-footer .divider {
-            color: var(--pink-light);
-            margin: 0 10px;
-        }
-
-  /* MOBILE RESPONSIVE */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            nav {
-                left: 20px;
-            }
-
-            nav a {
-                font-size: 0.8em;
-                margin: 15px 0;
-            }
-
-            section {
-                padding: 80px 10%;
-            }
-
-            .name-parts {
-                font-size: 2em !important;
-            }
-
             .domain-text {
                 font-size: 2em;
             }
 
-            h2 {
+            .name-parts {
                 font-size: 2em;
             }
 
-            .poem {
-                padding: 30px;
+            .tagline {
+                font-size: 1em;
+            }
+
+            #main-content {
+                padding: 2rem 1rem;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .slot-machine-container {
+                font-size: 1.3rem;
+                gap: 0.8rem;
+            }
+
+            .slot-column {
+                min-width: 120px;
+                height: 2rem;
+            }
+
+            .education {
+                font-size: 1rem;
+            }
+
+            .video-caption h3 {
+                font-size: 1.2rem;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .mission-statement {
+                padding: 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .mission-statement p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- LANDING -->
+    <!-- LANDING ANIMATION -->
     <section id="landing">
-        <!-- Domain that morphs into name -->
         <div class="domain-wrapper">
             <div class="domain-text">
-                <span class="www">WWW.</span><span class="satghi-text">SATGHI</span><span class="com">.COM</span>
+                <span class="www">www.</span><span class="satghi-text">SATGHI</span><span class="com">.com</span>
             </div>
-            
-            <!-- Name parts that take over -->
             <div class="name-container">
                 <div class="name-parts">
-                    <span class="sat-bounce">SAT</span><span class="inee-fill">INEE</span> <span class="ghi-bounce">GHI</span><span class="ulezian-fill">ULEZIAN</span>
+                    <span class="sat-bounce">SAT</span><span class="inee-fill">INEE</span>
+                    <span style="width: 20px;"></span>
+                    <span class="ghi-bounce">GHI</span><span class="ulezian-fill">ULEZIAN</span>
                 </div>
             </div>
         </div>
-        
-        <img src="images/sat-mickey.png" alt="Satinee Ghiulezian" class="profile-photo" id="main-photo">
-        
-        <div class="tagline-container">
-            <div class="slot-column">
-                <div class="slot-reel">
-                    <div class="slot-word">Architect</div>
-                    <div class="slot-word">Doctor</div>
-                    <div class="slot-word">Lawyer</div>
-                    <div class="slot-word">Scientist</div>
-                    <div class="slot-word">Teacher</div>
-                    <div class="slot-word">Engineer</div>
-                </div>
-            </div>
-            <span class="divider">•</span>
-            <div class="slot-column">
-                <div class="slot-reel">
-                    <div class="slot-word">Designer</div>
-                    <div class="slot-word">Artist</div>
-                    <div class="slot-word">Surgeon</div>
-                    <div class="slot-word">Pilot</div>
-                    <div class="slot-word">Chef</div>
-                    <div class="slot-word">Problem Solver</div>
-                </div>
-            </div>
-            <span class="divider">•</span>
-            <div class="slot-column">
-                <div class="slot-reel">
-                    <div class="slot-word">Writer</div>
-                    <div class="slot-word">Journalist</div>
-                    <div class="slot-word">Author</div>
-                    <div class="slot-word">Analyst</div>
-                    <div class="slot-word">Poet</div>
-                    <div class="slot-word">Storyteller</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">Scroll to explore ↓</div>
+        <div class="tagline">Building systems. Solving problems. Telling stories.</div>
     </section>
-    <!-- FROZEN HEADER (hidden initially) -->
-    <div class="frozen-header" id="frozen-header">
-        <img src="images/sat-mickey.png" alt="Satinee" class="header-photo">
-        <div class="header-content">
-            <div class="header-name">SATINEE GHIULEZIAN</div>
-            <div class="tagline-static">Engineer • Problem Solver • Storyteller</div>
+
+    <!-- MAIN CONTENT -->
+    <section id="main-content">
+        <div class="hero">
+            <!-- Header with Slot Machine -->
+            <div class="hero-header">
+                <img src="images/sat-mickey.png" alt="Satinee Ghiulezian" class="profile-photo">
+    
+                <div class="header-content">
+                    <h1>SATINEE GHIULEZIAN</h1>
+        
+                
+                    <div class="slot-machine-container">
+                        <div class="slot-column">
+                            <div class="slot-reel">
+                                <div class="slot-word">Architect</div>
+                                <div class="slot-word">Doctor</div>
+                                <div class="slot-word">Lawyer</div>
+                                <div class="slot-word">Scientist</div>
+                                <div class="slot-word">Teacher</div>
+                                <div class="slot-word">Engineer</div>
+                            </div>
+                        </div>
+                        <span class="divider">•</span>
+                        <div class="slot-column">
+                            <div class="slot-reel">
+                                <div class="slot-word">Designer</div>
+                                <div class="slot-word">Artist</div>
+                                <div class="slot-word">Surgeon</div>
+                                <div class="slot-word">Pilot</div>
+                                <div class="slot-word">Chef</div>
+                                <div class="slot-word">Problem Solver</div>
+                            </div>
+                        </div>
+                        <span class="divider">•</span>
+                        <div class="slot-column">
+                            <div class="slot-reel">
+                                <div class="slot-word">Writer</div>
+                                <div class="slot-word">Journalist</div>
+                                <div class="slot-word">Author</div>
+                                <div class="slot-word">Analyst</div>
+                                <div class="slot-word">Poet</div>
+                                <div class="slot-word">Storyteller</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="education">MS Systems Architecting & Engineering Candidate @ USC</p>
+                </div>
+            </div>
+            
+            <!-- Video Hero -->
+            <div class="video-container">
+                <video autoplay loop muted playsinline>
+                    <source src="videos/Voron-home.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-caption">
+                    <h3>Building Systems From Scratch</h3>
+                    <p>Custom Voron 2.4 CoreXY 3D Printer</p>
+                </div>
+            </div>
+            
+            <!-- Expertise Grid -->
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Safety Systems</h3>
+                    <p>Life-Safety System Modernization</p>
+                    <p>Safety Governance & Policy Authoring</p>
+                    <p>Incident Investigation & Root Cause</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Reliability & Performance Optimization</h3>
+                    <p>Operational Throughput Optimization</p>
+                    <p>Obsolescence & Risk Management</p>
+                    <p>Root Cause Scrap Reduction</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Mechatronics & Systems Integration</h3>
+                    <p>Automated System Development</p>
+                    <p>Systems Architecting(In-Progress)</p>
+                </div>
+            </div>
+            
+            <!-- Mission Statement -->
+            <div class="mission-statement">
+                <p>"I believe in the power of Non-Recurring Engineering: front-loading the effort to architect systems that are fail-safe by design and automated by necessity. My philosophy is to spend the hours building a solution once so that it can perform flawlessly forever—eliminating human error, maximizing reliability, and ensuring that the 'magic' of a complex system never rests on 'good enough.'"</p>
+            </div>
+            
+            <!-- CTA to Full Portfolio -->
+            <div class="cta-section">
+                <a href="project.html" class="cta-button">View Full Portfolio</a>
+            </div>
+            
+            <!-- Footer -->
+            <footer>
+                <p><a href="mailto:sat@satghi.com">sat@satghi.com</a> | <a href="https://linkedin.com/in/satenigghiulezian" target="_blank">LinkedIn</a></p>
+            </footer>
         </div>
-    </div>
+    </section>
 
-    <!-- NAVIGATION -->
-    <nav id="main-nav">
-        <a href="#story">My Story</a>
-        <a href="#journey">My Journey</a>
-        <a href="#writing">Writing</a>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#project">Projects</a>
-    </nav>
-    <!--CONTENT-->
-    <div class="content-wrapper" id ="content-wrapper">
-        <!-- MY STORY SECTION -->
-        <section id="story">
-            <h2>My Story</h2>
-            
-            <p>Welcome to my corner of the world wide web. You've landed on the digital archive of Satinee Ghiulezian—a collection of things I've made (including this site), sometimes using nothing but paperclips and rubber bands. Let me share with you the delight of creating something out of nothing.</p>
-            
-            <h3>About My Name</h3>
-            <p>Satinee is a twist on Satenig, my actual name, but one no one ever calls me. Every year on the first day of school, I'd introduce myself to my teachers and classmates: "Hi, my name is Saten-IG, but everyone calls me Satin-EE." I intentionally emphasized the -IG and -EE to make sure nobody made the mistake of calling me Satenig. Even though it honored my late grandmother, who died before my parents even met, Satinee always felt more naturally me.</p>
-            
-            <p>Both names come from the Armenian word սաթ (sat), which has a double meaning: amber (the fossilized resin) or electrum (the natural gold-silver alloy). Satenig is the diminutive meaning "little amber" or "little electrum." Satinee means "made of amber" or "made of electrum.".</p>
-            
-            <p>In elementary school we were asked to complete family trees—a moot project in my opinion for students in Armenian school, since most of us couldn't trace our families back more than our great-grandparents. I was always envious of my classmates who grew up with their grandparents and heard stories passed down about their great-grandparents.</p>
-            
-            <p>In connection with family trees, we were encouraged to explore the meaning of our last names. Most Armenian last names end in -ian or -yan, meaning "family of" whatever name precedes it. It could describe a trade that was in the family, like Smith, or the name of the patriarch. It's a relic of when Armenians lived within Turkish borders and were identified for tax purposes. My last name—Ghiulez is Turkish for "rose-face." For years I pondered what that name could mean. It wasn't like my friends who could point to the "Der" prefix in their last name and say there was a priest in their lineage, or the ones whose last names were of famous Armenian towns.</p>
-            
-            <p>I think I was in college when I realized the prominent, persistent redness on my face was actually rosacea. And that's when I made the connection—like puzzle pieces fitting together. I realized that my brother and I, along with our father and late grandfather, suffered from an affliction that rendered its sufferers with a rosy complexion. Rose-face. Suddenly I was like Harry staring in the Mirror of Erised, discovering that he had his mother's eyes. I don't have their stories, but I have their face.</p>
-        </section>
-        
-        <!-- HOW I GOT HERE SECTION -->
-        <section id="journey">
-            <h2>How I Got Here</h2>
-            
-            <p>I chose engineering because of math and science—like every other engineer and their cousin. In those days before starting college, I dreamt about becoming a roller coaster designer, but I still debated between pursuing civil or mechanical engineering. By some stroke of luck, I overheard during orientation that Mechanical and Aerospace Engineering majors didn't need to take the same writing course as the rest of the university. Back then, every undergraduate student took WRIT 140—a class required to take in sync with a writing-heavy general education course. It was every engineer's dread except for AME (aerospace and mechanical) because they had the option to take WRIT 130, a course uncoupled from general education with the freedom to write about anything. So of course, I chose mechanical engineering as my major, if only to survive one semester of writing. If I could become a roller coaster designer, well, that would be an added fringe benefit.</p>
-            
-            <p>If writing was why I chose mechanical engineering, Solidworks was why I stayed. With absolutely no exposure to what engineering was in high school, the discovery of a 3D modeling program that didn't require actual drawing skills floored me. And yet I barely passed the advanced class in solid modeling—bad luck and timing. But it was in this class I remember imagining modeling IKEA pieces and creating assemblies out of my components.</p>
-            
-            <p>Once I graduated, I imagined myself as a design engineer spending my days modeling components in Solidworks. I ended up at an aerospace division of a filter manufacturer as a work instructions author. When I started, I had no idea what manufacturing entailed. Walking into the interview as my future boss pointed out machine after machine, I couldn't help but feel like I was in Disneyland and I couldn't wait to tear things apart.</p>
-            
-            <p>I wrote work instructions and implemented training solutions for the new work instruction software. At first, I would print long lists of Excel files for status reports and to find out which part numbers needed work instructions. One day, struggling to figure out how to accomplish a task in Excel, I asked a coworker for help. He showed me how to record a macro. After that, all project timelines, work instruction updates, you name it became automated using VBA. Sure, I might have been able to accomplish whatever it was manually in a fraction of the time, but with VBA I was learning something new and I could reuse the code however many times I wanted.</p>
-            
-            <p>Automating with VBA led me to building a database of tools in Access. Eventually, I led the implementation of electronic work instructions for 80% of the plant floor, resulting in about $100,000 in cost reductions.</p>
-            
-            <p>A few years later, I came back to the same company in a more senior role. I reduced scrap by 80% on a single part number through root cause analysis. But the environment had become toxic—my boss wasn't listening to my ideas. So I started building physical proof of concepts. I saw a reel on Facebook and thought, "I can make that at work"—built a cardboard conveyor to test if we could create something cheap for the filter fab lines. I built a LEGO prototype to demonstrate how we could automate an epoxy dispenser with a cheap XY plotter. Eventually we implemented it—I assembled and set everything up except the code.</p>
-            
-            <p>What I really enjoyed during this time was troubleshooting and repairing the equipment. I discovered a straightforward PM issue that resolved a lot of heartache: an epoxy dispense machine had a pump pushing epoxy from a five gallon container to a nozzle. Every time the pump was left on, air accumulated, making it impossible for the epoxy to flow. Sometimes epoxy would start dispensing randomly—once dumping all over the operations and plant managers after hours. The fix? Turn off the air when the pump wasn't in use.</p>
-            
-            <p>That mechanical problem-solving—figuring out why machines weren't working and fixing them—drew me to an Equipment Engineer role at Spectrolab. There, I worked with MOVPE fab equipment, troubleshooting and maintaining semiconductor manufacturing tools. The data volume was too much for VBA to handle, so I taught myself Python. I implemented solutions that increased MOVPE throughput by 20% and received a Meritorious Invention Disclosure Award for designing a solution to reduce equipment downtime in cold weather. There was still paperwork—documenting procedures—but it felt rewarding because it was connected to tangible fixes.</p>
-        </section>
-
-        <!-- WRITING SECTION -->
-        <section id="writing">
-            <h2>Writing</h2>
-            
-            <div class="poem">
-                <div class="poem-title">The Pomegranate Tree</div>
-                There was once a beautiful tree<br>
-                With branches so weighed down<br>
-                From the fruit it bore<br>
-                That it stretched from sea to sea<br><br>
-                
-                The tree was rooted in a land<br>
-                Fought for, fought over, fought on<br>
-                Over the centuries it suffered and bled<br>
-                As its people toiled and slowly fled<br><br>
-                
-                An unending winter swept the tree<br>
-                Its branches withered and dried<br>
-                Its fruit split and scattered<br>
-                Spilling all their seeds far and wide<br><br>
-                
-                All that remains of that tree now<br>
-                Is the root, a mere remnant of what it was<br>
-                Just like the land it stands upon<br>
-                Searching for sustenance, struggling to survive on its own<br><br>
-                
-                The once scattered seeds have blossomed into trees<br>
-                Their branches growing and spreading<br>
-                Yearning for each other<br>
-                For only together could the trees save their mother root<br>
-                <div class="copyright">© 2024 Satenig Ghiulezian. All rights reserved.</div>
-            </div>
-            
-            <p>I also write fanfiction. You can find my stories at <a href="https://www.fanfiction.net/u/837361/leastbitperfect" target="_blank">FanFiction.Net</a>.</p>
-        </section>
-
-        <!-- PHILOSOPHY SECTION -->
-        <section id="philosophy">
-            <h2>Philosophy</h2>
-            
-            <div class="philosophy-principle">
-                <h4>Front-Load the Effort</h4>
-                <p>I'd rather spend hours building a solution once than waste minutes on the same task forever. There's satisfaction in saving time, but more than that—an automated task is one where I don't have to worry about mistakes made from boredom. My boss at Spectrolab called it NRE: Non-Recurring Engineering. It's a principle I'm learning more about in systems engineering—spend the time once, benefit forever.</p>
-                
-                <p>Examples: Electronic work instructions that saved $100,000 plant-wide. Data automation using VBA, then Python when the scale demanded it. Custom jigs and fixtures designed once, used in production repeatedly. A Voron 2.4 3D printer I spent months building that now gives me on-demand precision manufacturing capability.</p>
-            </div>
-            
-            <div class="philosophy-principle">
-                <h4>Use What You Have</h4>
-                <p>Cardboard conveyors. LEGO and highlighter automation prototypes. PowerPoint for making flyers and logos. Sometimes the right tools speak to me from the prototype—I build something scrappy to figure out what I actually need. Sometimes whatever I have is never intended to be anything beyond the prototype, just something I can use to come up with the right tools. And honestly? Using something like PowerPoint to make a logo is so satisfying. It impresses people because they don't expect it.</p>
-            </div>
-            
-            <div class="philosophy-principle">
-                <h4>Always Better</h4>
-                <p>There's never "good enough," but there's always better. I look at things that are working fine and ask, "How could this be better?"</p>
-                
-                <p>Before I left Spectrolab, I replaced our data viewing tool with AI-aided code generated in Python using the company ChatGPT. The old tool used native software data processing methods. The new one used dataframes. It was much faster and saved people time they didn't know they were losing. That's the thing—sometimes you don't know you're wasting time until someone shows you there's a better way.</p>
-                
-                <p>"Good enough" has never sat right with me. I'm not chasing perfection—it doesn't exist, so why waste time and effort on it. But there's always another way to look at a problem, another angle to try. The question isn't "does it work?" It's "could it work better?" And usually, the answer is yes.</p>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section id="projects">
-            <h2>Projects</h2>
-            
-            <!-- VORON 2.4 PROJECT -->
-            <div class="project">
-                <h3>Voron 2.4 3D Printer</h3>
-                
-                <p>At Spectrolab, I asked my boss one day if he had recommendations for buying a 3D printer. He said, "I have one better—build one." He suggested the Voron.</p>
-                
-                <p>All Vorons are open source and made up of printed components. The beauty of it: once you have one Voron, it can print the parts for the next one. My boss offered to print the plastic parts I needed with his Voron.</p>
-                
-                <p>I started ordering components in November 2021. I printed my first functional pieces in July/August 2022. Then for 18 months, my printer sat covered in painter's tarp while our kitchen was under construction because of a slab leak.</p>
-                
-                <p>My goal was to print all the non-functional components myself—true self-replication. But not having a proper enclosure made that difficult. Also, my prints kept failing. I ruined 3 or 4 hotends simply by having the thermistor wire break mid-print.</p>
-                
-                <p>Eventually, I realized the coating and shrink sleeve protecting the thermistor wasn't enough to keep it from breaking from all the movements the extruder made during printing. I found thermistors with sleeving made out of fiberglass so that it could bend without breaking.</p>
-                
-                <p>The printer works very well now. But there are still bugs. The frame isn't perfectly square—building tall prints causes the gantry to jam going up. I constantly get bed heater errors. These are annoying bugs that make me want to take the printer apart and rebuild it properly.</p>
-                
-                <p>But it works. And I've learned more about mechanical systems, electrical troubleshooting, and iterative problem-solving from building and fixing this printer than I ever would have from buying one off Amazon.</p>
-                
-                <div class="project-images">
-                    <img src="images/voron-first-print.jpeg" alt="First print - pink slug">
-                    <img src="images/voron-calibration.jpeg" alt="Calibration cubes">
-                    <img src="images/voron-print-challege.jpeg" alt="Gear calibration piece">
-                    <img src="images/voron-hairpin.jpeg" alt="Flower hairpin">
-                    <img src="images/voron-castle-qr.jpeg" alt="Castle with QR code">
-                    <img src="images/voron-benchy.jpeg" alt="Storage box parts">
-                    <img src="images/voron-3D-printed-QR-code.jpg" alt="Functional clips">
-                </div>
-                
-                <p><em>My first ever print (didn't go as planned!), calibration cubes for tuning the printer, test pieces, a functional flower hairpin I printed last minute for a party and still wear, a castle I designed with integrated QR code (too small to print clearly, so I improvised with a LinkedIn sticker on the back), the requisite Benchy, and a functioning QR code (try it!).</em></p>
-            </div>
-            
-            <!-- UPSTREAM CONTAMINATION PROJECT -->
-            <div class="project">
-                <h3>Upstream Contamination by Floating Particles</h3>
-                <p><em>USC Senior Design Project</em></p>
-                
-                <p>For my senior design capstone at USC, my team chose a counterintuitive fluid mechanics project from the professor's curated list: could floating particles actually travel upstream against both gravity and water flow?</p>
-                
-                <p>The phenomenon, first observed by Sebastian Bianchini while pouring tea, seemed impossible. But the physics checked out: the Marangoni Effect—where surface tension gradients create forces strong enough to pull particles upward—could make it happen. We just had to prove it.</p>
-                
-                <h4>The "Perfect" Solution That Failed</h4>
-                <p>The teaching assistants insisted we build a closed-loop system with precise flow control. I spent most of the semester in the machine shop, carefully fabricating what I thought would be the perfect acrylic channel—smooth surfaces, exact dimensions, controlled geometry.</p>
-                
-                <p>It didn't work.</p>
-                
-                <p>The flow was turbulent. The waterfall height was inconsistent. The particles went nowhere.</p>
-                
-                <h4>The Solution That Worked</h4>
-                <p>Frustrated and running out of time, my teammate grabbed a plastic water bottle, cut it in half, and duct-taped it to our containers.</p>
-                
-                <p>It worked immediately.</p>
-                
-                <p>The particles floated upstream. The TAs didn't believe it would work until they saw it with their own eyes—chalk particles traveling up a waterfall, defying everything that seemed intuitive about fluid flow.</p>
-                
-                <h4>Building the Tools We Needed</h4>
-                <p>To prove why it worked, we needed to measure surface tension. Commercial tensiometers cost thousands of dollars. We didn't have that budget.</p>
-                
-                <p>So I built one from a drinking straw I picked up from Coffee Bean, a syringe from the pharmacy. Total cost: about $3.</p>
-                
-                <p>The DIY tensiometer worked. We measured:</p>
-                <ul>
-                    <li>Clean water: 72 mN/m</li>
-                    <li>Contaminated water: 37-47 mN/m</li>
-                </ul>
-                
-                <p>That gradient—that difference in surface tension—was enough to overcome gravity and pull particles upstream through the Marangoni Effect.</p>
-                
-                <h4>The Results</h4>
-                <p>Successfully replicated upstream particle contamination. Measured and quantified surface tension gradients driving the phenomenon. Documented particle travel distances at different flow rates. Proved that sometimes the scrappiest solution is the right solution.</p>
-                
-                <p>After final grades were submitted, our professor selected our project for the end-of-semester poster showcase.</p>
-                
-                <h4>What I Learned</h4>
-                <p>This project taught me something more valuable than fluid mechanics: perfect isn't always better. The "proper" machined channel failed. The duct-taped water bottle worked. Sometimes the constraint isn't the engineering—it's knowing when to stop over-engineering.</p>
-                
-                <p>And when you can't afford the tools you need, you build them yourself.</p>
-                
-                <div class="project-video">
-                    <p><strong>The Tensiometer in Action</strong></p>
-                    <video controls muted width="600">
-                        <source src="videos/tensiometer-video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                
-                <p><em>Team: Satenig Ghiulezian, Sidney Mckie, Ewa Tymoszewska</em></p>
-            </div>
-        </section>
-    </div>
-   <!-- FIXED FOOTER -->
-    <footer id="contact-footer">
-        <a href="mailto:sat@satghi.com">sat@satghi.com</a>
-        <span class="divider">•</span>
-        <a href="https://www.linkedin.com/in/satenigghiulezian" target="_blank">LinkedIn</a>
-    </footer>
-    <!-- Add this Modal Block -->
-    <div id="imageModal" class="modal" onclick="this.style.display='none'">
-        <span class="close-btn">&times;</span>
-        <img id="modalImg" class="modal-content">
-    </div>
     <script>
-    // Check if user has seen landing page this session
-    const hasSeenLanding = sessionStorage.getItem('hasSeenLanding');
-    
-    if (hasSeenLanding) {
-        // Skip animation, go straight to content
-        const landing = document.getElementById('landing');
-        const frozenHeader = document.getElementById('frozen-header');
-        const mainNav = document.getElementById('main-nav');
-        const contentWrapper = document.getElementById('content-wrapper');
-        const footer = document.getElementById('contact-footer');
-        
-        landing.style.display = 'none';
-        frozenHeader.classList.add('visible');
-        mainNav.classList.add('visible');
-        contentWrapper.classList.add('with-header');
-        footer.classList.add('visible');
-    } else {
-        // First visit - show animation, then wait for scroll
-        let animationComplete = false;
-        
-        setTimeout(() => {
-            animationComplete = true;
-        }, 6500);
-        
-        window.addEventListener('scroll', function scrollHandler() {
-            if (animationComplete && window.scrollY > 100) {
-                const landing = document.getElementById('landing');
-                const frozenHeader = document.getElementById('frozen-header');
-                const mainNav = document.getElementById('main-nav');
-                const contentWrapper = document.getElementById('content-wrapper');
-                const footer = document.getElementById('contact-footer');
-                
-                // Hide landing
-                landing.style.opacity = '0';
-                landing.style.transition = 'opacity 0.8s ease';
-                
-                setTimeout(() => {
-                    landing.style.display = 'none';
-                }, 800);
-                
-                // Show frozen header with photo
-                frozenHeader.classList.add('visible');
-                mainNav.classList.add('visible');
-                contentWrapper.classList.add('with-header');
-                footer.classList.add('visible');
-                
-                // Mark as seen for this session
-                sessionStorage.setItem('hasSeenLanding', 'true');
-                
-                // Remove this scroll listener
-                window.removeEventListener('scroll', scrollHandler);
-            }
-        });
-    }
-    
-    // Navigation active state on scroll (always active)
-    window.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav a');
-        
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
+        // Auto-transition from landing to main content after animation completes
+        setTimeout(function() {
+            const landing = document.getElementById('landing');
+            const mainContent = document.getElementById('main-content');
             
-            if (window.pageYOffset >= sectionTop - 300) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
-            document.addEventListener("DOMContentLoaded", function() {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImg");
+            // Fade out landing
+            landing.style.opacity = '0';
+            landing.style.transition = 'opacity 0.8s ease';
             
-            // Selects all images inside your specific class
-            const images = document.querySelectorAll(".project-images img");
-
-            images.forEach(img => {
-                img.onclick = function() {
-                    modal.style.display = "block";
-                    modalImg.src = this.src;
-                }
-            });
-        });
-</script>
+            // After fade completes, hide landing and show main content
+            setTimeout(() => {
+                landing.style.display = 'none';
+                mainContent.style.opacity = '1';
+            }, 800);
+        }, 6500); // Wait for animation to complete (6.5 seconds)
+    </script>
 </body>
 </html>
