@@ -3,22 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satinee Ghiulezian - Engineer, Problem Solver, Story Teller</title>
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-
+    <title>Portfolio - Satinee Ghiulezian</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
+         :root {
             --pink-light: #fc85ae;
             --pink-medium: #f72585;
             --pink-dark: #d63384;
@@ -31,620 +23,510 @@
             scroll-behavior: smooth;
         }
         
+
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
             background: var(--bg-tint);
             overflow-x: hidden;
         }
 
-        /* ========== LANDING ANIMATION (ORIGINAL) ========== */
-        #landing {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* Navigation with castle icon */
+        .top-nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            padding: 1.5rem 2rem;
             background: var(--bg-main);
-            transition: all 0.8s ease;
+            backdrop-filter: blur(10px);
             z-index: 1000;
-        }
-   
-        .domain-wrapper {
-            position: relative;
-            height: 150px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-bottom: 40px;
+            gap: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e0e0e0;
         }
 
-        .domain-text {
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--pink-dark);
-            opacity: 0;
-            animation: domainAppear 1s ease-out 0.5s forwards;
-        }
-
-        .www, .com {
-            display: inline-block;
-            animation: wwwcomFade 0.8s ease-out 1.8s forwards;
-        }
-
-        .satghi-text {
-            display: inline-block;
-            position: relative;
-            animation: satghiFade 0.8s ease-out 1.8s forwards;
-        }
-
-        @keyframes satghiFade {
-            to {
-                opacity: 0;
-            }
-        }
-
-        @keyframes domainAppear {
-            to { opacity: 1; }
-        }
-
-        @keyframes wwwcomFade {
-            to { opacity: 0; }
-        }
-
-        .name-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 150px;
+        .nav-home {
             display: flex;
-            justify-content: center;
             align-items: center;
-            pointer-events: none;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            margin-right: 1rem;
         }
 
-        .name-parts {
-            font-size: 3em;
-            font-weight: 800;
+        .nav-home:hover {
+            transform: scale(1.1);
+        }
+
+        .castle-icon {
+            font-size: 1.8rem;
+        }
+
+        .nav-divider {
+            height: 30px;
+            width: 2px;
+            background: #e0e0e0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
             white-space: nowrap;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .sat-bounce, .ghi-bounce {
-            opacity: 0;
-            display: inline-block;
+        .nav-links a:hover {
             color: var(--pink-dark);
         }
 
-        .sat-bounce {
-            animation: satBounceOut 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.6s forwards;
-        }
-
-        .ghi-bounce {
-            animation: ghiBounceOut 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.6s forwards;
-        }
-
-        .inee-fill, .ulezian-fill {
-            opacity: 0;
-            display: inline-block;
-            color: var(--pink-dark);
-            animation: fillIn 0.5s ease-out 3.8s forwards;
-        }
-
-        @keyframes satBounceOut {
-            0% { opacity: 1; transform: translateX(0); }
-            40% { transform: translateX(-120px) scale(1.1); text-shadow: 0 0 20px var(--pink-glow); }
-            55% { transform: translateX(-90px) rotate(-5deg); }
-            100% { opacity: 1; transform: translateX(-10px) rotate(0deg); }
-        }
-
-        @keyframes ghiBounceOut {
-            0% { opacity: 1; transform: translateX(0); }
-            40% { transform: translateX(120px) scale(1.1); text-shadow: 0 0 20px var(--pink-glow); }
-            55% { transform: translateX(90px) rotate(5deg); }
-            100% { opacity: 1; transform: translateX(5px) rotate(0deg); }
-        }
-
-        @keyframes fillIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .tagline {
-            font-size: 1.4em;
-            color: var(--pink-medium);
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 4.5s forwards;
-            margin-top: 20px;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        /* ========== MAIN CONTENT (NEW DESIGN) ========== */
-        #main-content {
-            min-height: 100vh;
-            background: var(--bg-main);
-            padding: 2rem 2rem 2rem 2rem;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-        }
-
-        .hero {
+        /* Main container */
+        .portfolio-container {
             max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem 2rem;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 6rem;
+            padding-bottom: 4rem;
+            border-bottom: 2px solid #e0e0e0;
+            scroll-margin-top: 100px;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        /* Story section */
+        .story-content {
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        /* Slot Machine */
-        .hero-header {
-            display:flex;
-            align-items: center;
-            gap:20px;
-            background:rgba(255,255,255,0.98);
-            backdrop-filter:blur(10px);
-            padding: 15px 15px;
-            border-bottom: 1px solid rgba(252, 133, 174, 0.2);
-            border-radius: 8px;
-            max-width: 900px;
-            margin: 0 auto 2rem auto;
-        }
-
-        .profile-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: contain;
-            filter: drop-shadow(0 5px 15px var(--pink-glow));
-            flex-shrink: 0;
-        }
-        .header-content{
-            flex:1;
-            text-align: center;
-        }
-        
-        .hero-header h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;  
-        }   
-
-        .slot-machine-container {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-            font-weight: 500;
-            color: var(--pink-medium);
-        }
-
-
-        .slot-column {
-           display: inline-flex;
-            position: relative;
-            height: 1.5rem;
-            overflow: hidden;
-            min-width: 120px;
-            text-align: center;
-            flex-direction: column-reverse;
-            align-content: stretch;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .divider {
-            color: var(--pink-medium);
-            font-size: 1.1rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .slot-reel {
-            display: flex;
-            flex-direction: column;
-            animation: spin 3s ease-in-out 6.5s forwards;
-            position: relative;
-            
-        }
-
-        .slot-word {
-            height: 1.5rem;  /* Match the column height */
-            line-height: 1.5rem;  /* Center text vertically */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
-
-
-        /* Different speeds for each column */
-        .slot-column:nth-child(1) .slot-reel {
-            animation-duration: 2.5s;
-        }
-
-        .slot-column:nth-child(3) .slot-reel {
-            animation-duration: 2.8s;
-        }
-
-        .slot-column:nth-child(5) .slot-reel {
-            animation-duration: 3.2s;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: translateY(0);
-            }
-            80% {
-                transform: translateY(-7.5rem);  /* 1.5rem × 5 positions */
-            }
-            100% {
-                transform: translateY(-7.5rem);
-            }
-        }
-
-        .education {
-            font-size: 1.0rem;
-            color: #666;
-            margin-top: 1.2rem;
-        }
-
-        /* Video Hero */
-        .video-container {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(247, 37, 133, 0.2);
-        }
-
-        .video-container video {
-            width: 100%;
-            max-height: 400px;
-            display: block;
-            object-fit:fill;
-        }
-
-        .video-caption {
-            padding: 1.5rem 2rem;
-            background: var(--bg-tint);
-            border-top: 3px solid var(--pink-medium);
-        }
-
-        .video-caption h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.5rem;
-            color: var(--pink-dark);
-        }
-
-        .video-caption p {
-            margin: 0;
-            color: #666;
-            font-size: 1rem;
-        }
-
-        /* Expertise Grid */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .expertise-card {
+        .story-highlight {
+            background: #f8f8f8;
             padding: 2rem;
-            background: white;
-            border: 2px solid #ffd6e7;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .expertise-card:hover {
-            border-color: var(--pink-medium);
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px var(--pink-glow);
-        }
-
-        .expertise-card h3 {
-            margin: 0 0 1rem 0;
-            color: var(--pink-dark);
-            font-size: 1.3rem;
-        }
-
-        .expertise-card p {
-            margin: 0.5rem 0;
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Mission Statement */
-        .mission-statement {
-            max-width: 700px;
-            margin: 2rem auto;
-            padding: 1.5rem 2rem;
-            background: var(--bg-tint);
-            border-left: 5px solid var(--pink-medium);
+            border-left: 5px solid var(--pink-dark);
+            margin-bottom: 2rem;
             border-radius: 4px;
         }
 
-        .mission-statement p {
-            margin: 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-            font-style: italic;
+        .story-highlight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
         }
 
-        /* CTA Button */
-        .cta-section {
-            text-align: center;
+        .story-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--pink-dark)
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.6rem;
+            top: 0.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: var(--pink-dark);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--pink-dark);
+        }
+
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--pink-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .timeline-content p {
+            margin-bottom: 0.5rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Philosophy grid */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .philosophy-card {
+            padding: 2rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            border-color: var(--pink-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .philosophy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .philosophy-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-card .example {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #888;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Projects section */
+        .project {
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .project:last-child {
+            border-bottom: none;
+        }
+
+        .project h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .project-media {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            display: block;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
             margin: 2rem 0;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: var(--pink-medium);
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
+        .project-grid img {
+            width: 100%;
             border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px var(--pink-glow);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .cta-button:hover {
-            background: var(--pink-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--pink-glow);
+        .project-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .project-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content li {
+            margin-bottom: 0.5rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.5rem 1.2rem;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Contact section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .contact-content a {
+            color: var(--pink-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-content a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem 2rem 2rem 2rem;
+            padding: 3rem 2rem;
             color: #666;
-            border-top: 1px solid #ffd6e7;
+            border-top: 1px solid #e0e0e0;
             margin-top: 4rem;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 1rem;
-        }
-
         footer a {
-            color: var(--pink-medium);
+            color: var(--pink-dark);
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: var(--pink-dark);
             text-decoration: underline;
         }
 
-        /* Mobile Responsive */
+        /* Mobile responsive */
         @media (max-width: 768px) {
-            .domain-text {
-                font-size: 2em;
+            .top-nav {
+                padding: 1rem;
+                gap: 1rem;
             }
 
-            .name-parts {
-                font-size: 2em;
+            .nav-links {
+                gap: 1rem;
             }
 
-            .tagline {
-                font-size: 1em;
+            .nav-links a {
+                font-size: 0.75rem;
             }
 
-            #main-content {
-                padding: 2rem 1rem;
+            .portfolio-container {
+                padding: 7rem 1rem 2rem 1rem;
             }
 
-            .profile-photo {
-                width: 150px;
-                height: 150px;
+            .section h2 {
+                font-size: 2rem;
             }
 
-            .hero-header h1 {
-                font-size: 2.2rem;
+            .timeline {
+                padding-left: 1rem;
             }
 
-            .slot-machine-container {
-                font-size: 1.3rem;
-                gap: 0.8rem;
+            .timeline-item {
+                padding-left: 2rem;
             }
 
-            .slot-column {
-                min-width: 120px;
-                height: 2rem;
-            }
-
-            .education {
-                font-size: 1rem;
-            }
-
-            .video-caption h3 {
-                font-size: 1.2rem;
-            }
-
-            .expertise-grid {
+            .philosophy-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin: 2rem 0;
             }
 
-            .mission-statement {
-                padding: 1.5rem;
-                margin: 2rem 1rem;
+            .project h3 {
+                font-size: 1.5rem;
             }
 
-            .mission-statement p {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
+            .project-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- LANDING ANIMATION -->
-    <section id="landing">
-        <div class="domain-wrapper">
-            <div class="domain-text">
-                <span class="www">www.</span><span class="satghi-text">SATGHI</span><span class="com">.com</span>
-            </div>
-            <div class="name-container">
-                <div class="name-parts">
-                    <span class="sat-bounce">SAT</span><span class="inee-fill">INEE</span>
-                    <span style="width: 20px;"></span>
-                    <span class="ghi-bounce">GHI</span><span class="ulezian-fill">ULEZIAN</span>
-                </div>
-            </div>
-        </div>
-        <div class="tagline">Building systems. Solving problems. Telling stories.</div>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <section id="main-content">
-        <div class="hero">
-            <!-- Header with Slot Machine -->
-            <div class="hero-header">
-                <img src="images/sat-mickey.png" alt="Satinee Ghiulezian" class="profile-photo">
-    
-                <div class="header-content">
-                    <h1>SATINEE GHIULEZIAN</h1>
+    <!-- Navigation with Castle Home Button -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-home" title="Back to Home">
+            <span class="castle-icon">🏰</span>
+        </a>
         
-                
-                    <div class="slot-machine-container">
-                        <div class="slot-column">
-                            <div class="slot-reel">
-                                <div class="slot-word">Architect</div>
-                                <div class="slot-word">Doctor</div>
-                                <div class="slot-word">Lawyer</div>
-                                <div class="slot-word">Scientist</div>
-                                <div class="slot-word">Teacher</div>
-                                <div class="slot-word">Engineer</div>
-                            </div>
-                        </div>
-                        <span class="divider">•</span>
-                        <div class="slot-column">
-                            <div class="slot-reel">
-                                <div class="slot-word">Designer</div>
-                                <div class="slot-word">Artist</div>
-                                <div class="slot-word">Surgeon</div>
-                                <div class="slot-word">Pilot</div>
-                                <div class="slot-word">Chef</div>
-                                <div class="slot-word">Problem Solver</div>
-                            </div>
-                        </div>
-                        <span class="divider">•</span>
-                        <div class="slot-column">
-                            <div class="slot-reel">
-                                <div class="slot-word">Writer</div>
-                                <div class="slot-word">Journalist</div>
-                                <div class="slot-word">Author</div>
-                                <div class="slot-word">Analyst</div>
-                                <div class="slot-word">Poet</div>
-                                <div class="slot-word">Storyteller</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="education">MS Systems Architecting & Engineering Candidate @ USC</p>
-                </div>
-            </div>
-            
-            <!-- Video Hero -->
-            <div class="video-container">
-                <video autoplay loop muted playsinline>
-                    <source src="videos/Voron-home.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="video-caption">
-                    <h3>Building Systems From Scratch</h3>
-                    <p>Custom Voron 2.4 CoreXY 3D Printer</p>
-                </div>
-            </div>
-            
-            <!-- Expertise Grid -->
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <h3>Safety Systems</h3>
-                    <p>Life-Safety System Modernization</p>
-                    <p>Safety Governance & Policy Authoring</p>
-                    <p>Incident Investigation & Root Cause</p>
-                </div>
-                
-                <div class="expertise-card">
-                    <h3>Reliability & Performance Optimization</h3>
-                    <p>Operational Throughput Optimization</p>
-                    <p>Obsolescence & Risk Management</p>
-                    <p>Root Cause Scrap Reduction</p>
-                </div>
-                
-                <div class="expertise-card">
-                    <h3>Mechatronics & Systems Integration</h3>
-                    <p>Automated System Development</p>
-                    <p>Systems Architecting(In-Progress)</p>
-                </div>
-            </div>
-            
-            <!-- Mission Statement -->
-            <div class="mission-statement">
-                <p>"I believe in the power of Non-Recurring Engineering: front-loading the effort to architect systems that are fail-safe by design and automated by necessity. My philosophy is to spend the hours building a solution once so that it can perform flawlessly forever—eliminating human error, maximizing reliability, and ensuring that the 'magic' of a complex system never rests on 'good enough.'"</p>
-            </div>
-            
-            <!-- CTA to Full Portfolio -->
-            <div class="cta-section">
-                <a href="project.html" class="cta-button">View Full Portfolio</a>
-            </div>
-            
-            <!-- Footer -->
-            <footer>
-                <p><a href="mailto:sat@satghi.com">sat@satghi.com</a> | <a href="https://linkedin.com/in/satenigghiulezian" target="_blank">LinkedIn</a></p>
-            </footer>
+        <div class="nav-divider"></div>
+        
+        <div class="nav-links">
+            <a href="#story">My Story</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
-    </section>
+    </nav>
 
-    <script>
-        // Auto-transition from landing to main content after animation completes
-        setTimeout(function() {
-            const landing = document.getElementById('landing');
-            const mainContent = document.getElementById('main-content');
+    <div class="portfolio-container">
+        
+        <!-- MY STORY SECTION -->
+        <div class="section" id="story">
+            <h2>My Story</h2>
             
-            // Fade out landing
-            landing.style.opacity = '0';
-            landing.style.transition = 'opacity 0.8s ease';
+            <div class="story-content">
+                <div class="story-highlight">
+                    <h3>The Rose-Face Philosophy</h3>
+                    <p>My last name, Ghiulezian, translates to 'Rose-Face.' It took years of engineering intuition to realize that a persistent family trait wasn't just a quirk—it was a biological legacy. This sparked my lifelong obsession with Root Cause Analysis. Whether it’s a family name or a failing MOCVD reactor, I look past the symptoms to find the source.</p>
+                </div>
+                
+                <div class="story-highlight">
+                    <h3>From Aerospace to Beyond </h3>
+                    <p>I entered mechanical engineering to escape a writing class, but I stayed because of SolidWorks and the thrill of the 'Scrappy Prototype.' At Woodward and Spectrolab, I learned that 'good enough' is the enemy of 'fail-safe.' I’ve replaced obsolete toxic gas systems, authored site-wide safety manuals, and built Voron 2.4 printers from scratch—all driven by one question: Does it work, or can it work better?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS SECTION -->
+        <div class="section" id="projects">
+            <h2>Projects</h2>
             
-            // After fade completes, hide landing and show main content
-            setTimeout(() => {
-                landing.style.display = 'none';
-                mainContent.style.opacity = '1';
-            }, 800);
-        }, 6500); // Wait for animation to complete (6.5 seconds)
-    </script>
+            <!-- Project Template - Copy for each project -->
+            <div class="project">
+                <h3>The Voron 2.4: A Study in SQDC & System Maturity</h3>
+                
+                <!-- Add video if you have one -->
+                <div class="project-media">
+                    <video controls muted width="600">
+                        <source src="videos/firstquadgantrylevel.MOV" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="project-content">
+                    <p>My undergraduate career was driven by two metrics: Delivery and Cost. I rushed to finish on time and under budget. I met those goals, but the Quality—reflected in my GPA—suffered. The toll on my well-being was a failure of personal Safety and sustainability. I learned early that when you over-prioritize speed, the system eventually breaks.</p>
+                    <p>When I began the Voron 2.4 build, I inverted my philosophy. I decided it would take as long as it took and cost whatever was necessary to achieve High Performance.</p>
+                    <p>This project became my personal masterclass in SQDC:</p>
+                    <p><strong>Safety (S):</strong> I refused to compromise on the electrical architecture. When I discovered the thermistor wires were a fatigue-failure point, I didn't 'patch' them; I redesigned the sub-system with fiberglass sleeving to ensure long-term operational safety.</p>
+                    <p><strong>Quality (Q):</strong> I moved away from 'good enough.' I spent months troubleshooting gantry-squaring and uneven layer lines because I understood that a machine is only as good as its most neglected tolerance.</p>
+                    <p><strong>Delivery (D): Delivery & Cost (D/C):</strong>Delivery (D):By de-prioritizing an arbitrary deadline, I actually built a more sustainable tool. The 'Non-Recurring Engineering' (NRE) I invested ensured that when the printer finally ran, it produced results that were right the first time.</p>
+                    
+
+                <!-- Add image grid if you have photos -->
+                <div class="project-grid">
+                    <img src="images/voron-first-print.jpeg"alt="First Ever Print (Not what I intended!)">
+                    <img src="images/voron-calibration.jpeg" alt="Voron Calibration Cubes">
+                    <img src="images/voron-print-challege.jpeg" alt="Bridging Ability Test">
+                    <img src="images/voron-hairpin.jpeg" alt="Last Minute Hair Clip Print">
+                    <img src="images/voron-3D-printed-QR-code.jpg" alt="Working Printed QR Code-Try It!">
+                    <img src="images/voron-castle-qr.jpeg" alt="Attempted to print QR, failed so I put it on a sticker.">
+                    <img src="images/voron-benchy.jpeg" alt="Add of course, my first Benchy">
+                </div>
+            </div>
+            
+            <!-- Project Template - Copy for each project -->
+            <div class="project">
+                <h3>Miscellanous </h3>
+                
+                <!-- Add video if you have one -->
+                <div class="project-media">
+                    <video controls muted width="600">
+                        <source src="videos/tensiometer-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="project-media">
+                    <video controls muted width ="600">
+                        <source src="videos/Conveyor Belt Proof of Concept.mp4" type="video/mp4">
+                    </video>
+                </div>
+            
+                <div class="project-media">
+                    <video controls muted = "600">
+                        <source src="videos/Epoxy Dispensing Proof Of Concept.mp4" type="video/mp4">
+                    </video>
+                </div>
+            
+            
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div class="section" id="contact">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-content">
+                <p>Welcome to my corner of the world wide web. You've landed on the digital archive of Satinee Ghiulezian—a collection of things I've made (including this site), sometimes using nothing but paperclips and rubber bands. Thank you for letting me share with you the delight of creating something out of nothing.</p>
+                <p><strong>Email:</strong> <a href="mailto:sat@satghi.com">sat@satghi.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/satenigghiulezian" target="_blank">linkedin.com/in/satenigghiulezian</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Satinee Ghiulezian | <a href="index.html">Back to Home 🏰</a></p>
+    </footer>
 </body>
 </html>
