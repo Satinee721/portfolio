@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satinee Ghiulezian - Engineer, Problem Solver, Story Teller</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-light: #fc85ae;
+            --pink-medium: #f72585;
+            --pink-dark: #d63384;
+            --pink-glow: rgba(247, 37, 133, 0.3);
+            --bg-main: #ffffff;
+            --bg-tint: #fff5f8;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: var(--bg-tint);
+            overflow-x: hidden;
+        }
+
+        /* ========== LANDING ANIMATION (ORIGINAL) ========== */
+        #landing {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-main);
+            transition: all 0.8s ease;
+            z-index: 1000;
+        }
+   
+        .domain-wrapper {
+            position: relative;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .domain-text {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--pink-dark);
+            opacity: 0;
+            animation: domainAppear 1s ease-out 0.5s forwards;
+        }
+
+        .www, .com {
+            display: inline-block;
+            animation: wwwcomFade 0.8s ease-out 1.8s forwards;
+        }
+
+        .satghi-text {
+            display: inline-block;
+            position: relative;
+            animation: satghiFade 0.8s ease-out 1.8s forwards;
+        }
+
+        @keyframes satghiFade {
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes domainAppear {
+            to { opacity: 1; }
+        }
+
+        @keyframes wwwcomFade {
+            to { opacity: 0; }
+        }
+
+        .name-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .name-parts {
+            font-size: 3em;
+            font-weight: 800;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sat-bounce, .ghi-bounce {
+            opacity: 0;
+            display: inline-block;
+            color: var(--pink-dark);
+        }
+
+        .sat-bounce {
+            animation: satBounceOut 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.6s forwards;
+        }
+
+        .ghi-bounce {
+            animation: ghiBounceOut 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.6s forwards;
+        }
+
+        .inee-fill, .ulezian-fill {
+            opacity: 0;
+            display: inline-block;
+            color: var(--pink-dark);
+            animation: fillIn 0.5s ease-out 3.8s forwards;
+        }
+
+        @keyframes satBounceOut {
+            0% { opacity: 1; transform: translateX(0); }
+            40% { transform: translateX(-120px) scale(1.1); text-shadow: 0 0 20px var(--pink-glow); }
+            55% { transform: translateX(-90px) rotate(-5deg); }
+            100% { opacity: 1; transform: translateX(-10px) rotate(0deg); }
+        }
+
+        @keyframes ghiBounceOut {
+            0% { opacity: 1; transform: translateX(0); }
+            40% { transform: translateX(120px) scale(1.1); text-shadow: 0 0 20px var(--pink-glow); }
+            55% { transform: translateX(90px) rotate(5deg); }
+            100% { opacity: 1; transform: translateX(5px) rotate(0deg); }
+        }
+
+        @keyframes fillIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .tagline {
+            font-size: 1.4em;
+            color: var(--pink-medium);
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 4.5s forwards;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* ========== MAIN CONTENT (NEW DESIGN) ========== */
+        #main-content {
+            min-height: 100vh;
+            background: var(--bg-main);
+            padding: 2rem 2rem 2rem 2rem;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Slot Machine */
+        .hero-header {
+            display:flex;
+            align-items: center;
+            gap:20px;
+            background:rgba(255,255,255,0.98);
+            backdrop-filter:blur(10px);
+            padding: 15px 15px;
+            border-bottom: 1px solid rgba(252, 133, 174, 0.2);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px var(--pink-glow));
+            flex-shrink: 0;
+        }
+        .header-content{
+            flex:1;
+            text-align: center;
+        }
+        
+        .hero-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;  
+        }   
+
+        .slot-machine-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            font-weight: 500;
+            color: var(--pink-medium);
+        }
+
+
+        .slot-column {
+           display: inline-flex;
+            position: relative;
+            height: 1.5rem;
+            overflow: hidden;
+            min-width: 120px;
+            text-align: center;
+            flex-direction: column-reverse;
+            align-content: stretch;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .divider {
+            color: var(--pink-medium);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .slot-reel {
+            display: flex;
+            flex-direction: column;
+            animation: spin 3s ease-in-out 6.5s forwards;
+            position: relative;
+            
+        }
+
+        .slot-word {
+            height: 1.5rem;  /* Match the column height */
+            line-height: 1.5rem;  /* Center text vertically */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+
+        /* Different speeds for each column */
+        .slot-column:nth-child(1) .slot-reel {
+            animation-duration: 2.5s;
+        }
+
+        .slot-column:nth-child(3) .slot-reel {
+            animation-duration: 2.8s;
+        }
+
+        .slot-column:nth-child(5) .slot-reel {
+            animation-duration: 3.2s;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translateY(0);
+            }
+            80% {
+                transform: translateY(-7.5rem);  /* 1.5rem × 5 positions */
+            }
+            100% {
+                transform: translateY(-7.5rem);
+            }
+        }
+
+        .education {
+            font-size: 1.0rem;
+            color: #666;
+            margin-top: 1.2rem;
+        }
+
+        /* Video Hero */
+        .video-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(247, 37, 133, 0.2);
+        }
+
+        .video-container video {
+            width: 100%;
+            max-height: 400px;
+            display: block;
+            object-fit:fill;
+        }
+
+        .video-caption {
+            padding: 1.5rem 2rem;
+            background: var(--bg-tint);
+            border-top: 3px solid var(--pink-medium);
+        }
+
+        .video-caption h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+            color: var(--pink-dark);
+        }
+
+        .video-caption p {
+            margin: 0;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .expertise-card {
+            padding: 2rem;
+            background: white;
+            border: 2px solid #ffd6e7;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            border-color: var(--pink-medium);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px var(--pink-glow);
+        }
+
+        .expertise-card h3 {
+            margin: 0 0 1rem 0;
+            color: var(--pink-dark);
+            font-size: 1.3rem;
+        }
+
+        .expertise-card p {
+            margin: 0.5rem 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Mission Statement */
+        .mission-statement {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 1.5rem 2rem;
+            background: var(--bg-tint);
+            border-left: 5px solid var(--pink-medium);
+            border-radius: 4px;
+        }
+
+        .mission-statement p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            font-style: italic;
+        }
+
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--pink-medium);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px var(--pink-glow);
+        }
+
+        .cta-button:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--pink-glow);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem 2rem 2rem;
+            color: #666;
+            border-top: 1px solid #ffd6e7;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: var(--pink-medium);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--pink-dark);
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .domain-text {
+                font-size: 2em;
+            }
+
+            .name-parts {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+
+            #main-content {
+                padding: 2rem 1rem;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .slot-machine-container {
+                font-size: 1.3rem;
+                gap: 0.8rem;
+            }
+
+            .slot-column {
+                min-width: 120px;
+                height: 2rem;
+            }
+
+            .education {
+                font-size: 1rem;
+            }
+
+            .video-caption h3 {
+                font-size: 1.2rem;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .mission-statement {
+                padding: 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .mission-statement p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- LANDING ANIMATION -->
+    <section id="landing">
+        <div class="domain-wrapper">
+            <div class="domain-text">
+                <span class="www">www.</span><span class="satghi-text">SATGHI</span><span class="com">.com</span>
+            </div>
+            <div class="name-container">
+                <div class="name-parts">
+                    <span class="sat-bounce">SAT</span><span class="inee-fill">INEE</span>
+                    <span style="width: 20px;"></span>
+                    <span class="ghi-bounce">GHI</span><span class="ulezian-fill">ULEZIAN</span>
+                </div>
+            </div>
+        </div>
+        <div class="tagline">Building systems. Solving problems. Telling stories.</div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section id="main-content">
+        <div class="hero">
+            <!-- Header with Slot Machine -->
+            <div class="hero-header">
+                <img src="images/sat-mickey.png" alt="Satinee Ghiulezian" class="profile-photo">
+    
+                <div class="header-content">
+                    <h1>SATINEE GHIULEZIAN</h1>
+        
+                
+                    <div class="slot-machine-container">
+                        <div class="slot-column">
+                            <div class="slot-reel">
+                                <div class="slot-word">Architect</div>
+                                <div class="slot-word">Doctor</div>
+                                <div class="slot-word">Lawyer</div>
+                                <div class="slot-word">Scientist</div>
+                                <div class="slot-word">Teacher</div>
+                                <div class="slot-word">Engineer</div>
+                            </div>
+                        </div>
+                        <span class="divider">•</span>
+                        <div class="slot-column">
+                            <div class="slot-reel">
+                                <div class="slot-word">Designer</div>
+                                <div class="slot-word">Artist</div>
+                                <div class="slot-word">Surgeon</div>
+                                <div class="slot-word">Pilot</div>
+                                <div class="slot-word">Chef</div>
+                                <div class="slot-word">Problem Solver</div>
+                            </div>
+                        </div>
+                        <span class="divider">•</span>
+                        <div class="slot-column">
+                            <div class="slot-reel">
+                                <div class="slot-word">Writer</div>
+                                <div class="slot-word">Journalist</div>
+                                <div class="slot-word">Author</div>
+                                <div class="slot-word">Analyst</div>
+                                <div class="slot-word">Poet</div>
+                                <div class="slot-word">Storyteller</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="education">MS Systems Architecting & Engineering Candidate @ USC</p>
+                </div>
+            </div>
+            
+            <!-- Video Hero -->
+            <div class="video-container">
+                <video autoplay loop muted playsinline>
+                    <source src="videos/Voron-home.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-caption">
+                    <h3>Building Systems From Scratch</h3>
+                    <p>Custom Voron 2.4 CoreXY 3D Printer</p>
+                </div>
+            </div>
+            
+            <!-- Expertise Grid -->
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Safety Systems</h3>
+                    <p>Life-Safety System Modernization</p>
+                    <p>Safety Governance & Policy Authoring</p>
+                    <p>Incident Investigation & Root Cause</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Reliability & Performance Optimization</h3>
+                    <p>Operational Throughput Optimization</p>
+                    <p>Obsolescence & Risk Management</p>
+                    <p>Root Cause Scrap Reduction</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Mechatronics & Systems Integration</h3>
+                    <p>Automated System Development</p>
+                    <p>Systems Architecting(In-Progress)</p>
+                </div>
+            </div>
+            
+            <!-- Mission Statement -->
+            <div class="mission-statement">
+                <p>"I believe in the power of Non-Recurring Engineering: front-loading the effort to architect systems that are fail-safe by design and automated by necessity. My philosophy is to spend the hours building a solution once so that it can perform flawlessly forever—eliminating human error, maximizing reliability, and ensuring that the 'magic' of a complex system never rests on 'good enough.'"</p>
+            </div>
+            
+            <!-- CTA to Full Portfolio -->
+            <div class="cta-section">
+                <a href="project.html" class="cta-button">View Full Portfolio</a>
+            </div>
+            
+            <!-- Footer -->
+            <footer>
+                <p><a href="mailto:sat@satghi.com">sat@satghi.com</a> | <a href="https://linkedin.com/in/satenigghiulezian" target="_blank">LinkedIn</a></p>
+            </footer>
+        </div>
+    </section>
+
+    <script>
+        // Auto-transition from landing to main content after animation completes
+        setTimeout(function() {
+            const landing = document.getElementById('landing');
+            const mainContent = document.getElementById('main-content');
+            
+            // Fade out landing
+            landing.style.opacity = '0';
+            landing.style.transition = 'opacity 0.8s ease';
+            
+            // After fade completes, hide landing and show main content
+            setTimeout(() => {
+                landing.style.display = 'none';
+                mainContent.style.opacity = '1';
+            }, 800);
+        }, 6500); // Wait for animation to complete (6.5 seconds)
+    </script>
+</body>
+</html>
