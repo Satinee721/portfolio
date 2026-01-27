@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satinee Ghiulezian - Engineer, Problem Solver, Story Teller</title>
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJ8962BQ8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-1MJ8962BQ8');
-    </script>
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -248,11 +239,7 @@
             overflow: hidden;
             min-width: 120px;
             text-align: center;
-            flex-direction: column-reverse;
-            align-content: stretch;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            align-items: center;
+            
         }
 
         .divider {
@@ -266,7 +253,7 @@
         .slot-reel {
             display: flex;
             flex-direction: column;
-            animation: spin 3s ease-in-out 6.5s forwards;
+            animation: spin 3s ease-in-out 1s forwards;
             position: relative;
             
         }
@@ -299,10 +286,10 @@
                 transform: translateY(0);
             }
             80% {
-                transform: translateY(-7.5rem);  /* 1.5rem × 5 positions */
+                transform: translateY(-11rem);  /* Move 5 positions (2.2rem × 5) */
             }
             100% {
-                transform: translateY(-7.5rem);
+                transform: translateY(-11rem);
             }
         }
 
@@ -315,7 +302,7 @@
         /* Video Hero */
         .video-container {
             position: relative;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto 2rem;
             border-radius: 12px;
             overflow: hidden;
@@ -324,9 +311,9 @@
 
         .video-container video {
             width: 100%;
-            max-height: 400px;
+            max-height:300px;
             display: block;
-            object-fit:fill;
+            object-fit: cover;
         }
 
         .video-caption {
@@ -454,6 +441,28 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .hero-header {
+                flex-direction: column;  /* Stack photo above content on mobile */
+                text-align: center;
+            }
+    
+            .header-content {
+                text-align: center;
+            }
+    
+            .hero-header h1 {
+                font-size: 1.5rem;  /* Smaller on mobile */
+            }
+    
+            .slot-machine-container {
+                flex-wrap: wrap;  /* Allow wrapping on mobile */
+                 font-size: 0.9rem;
+            }
+    
+            .slot-column {
+                min-width: 100px;
+            }    
+
             .domain-text {
                 font-size: 2em;
             }
