@@ -265,34 +265,83 @@
         }
 
         .project-media {
-            margin: 2rem 0;
+            margin: 2rem auto;  /* Change from "2rem 0" */
+            max-width: 500px;  /* ADD THIS - limits video width */
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
-        .project-media img,
         .project-media video {
             width: 100%;
+            max-height: 350px;  /* ADD THIS - limits video height */
             display: block;
+            object-fit: cover;  /* ADD THIS - crops nicely */
         }
 
-        .project-grid {
+        .video-caption {
+            padding: 1rem 1.5rem;
+            background: var(--bg-tint);
+            border-top: 3px solid var(--pink-medium);
+            text-align: center;
+        }
+
+        .video-caption p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+
+                .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
 
         .project-grid img {
             width: 100%;
+            height: 250px;  /* Fixed height for all images */
+            object-fit: cover;  /* Crop to fit */
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            cursor: pointer;  /* Show it's clickable */
         }
 
         .project-grid img:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Modal for full-size image */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            cursor: pointer;
+        }
+
+        .modal img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .modal:hover {
+            opacity: 0.95;
         }
 
         .project-content p {
@@ -350,6 +399,20 @@
 
         .contact-content a:hover {
             text-decoration: underline;
+        }
+
+        .contact-logo {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .contact-logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px var(--pink-glow));
+            opacity: 0.9;
         }
 
         /* Footer */
@@ -495,18 +558,27 @@
                     <video controls muted width="600">
                         <source src="videos/tensiometer-video.mp4" type="video/mp4">
                     </video>
+                    <div class="video-caption">
+                        <p>DIY Tensiometer for Senior Design Project</p>
+                    </div>
                 </div>
 
                 <div class="project-media">
                     <video controls muted width ="600">
                         <source src="videos/Conveyor Belt Proof of Concept.mp4" type="video/mp4">
                     </video>
+                    <div class="video-caption">
+                        <p>Conveyor Belt Prototype</p>
+                    </div>
                 </div>
             
                 <div class="project-media">
                     <video controls muted = "600">
                         <source src="videos/Epoxy Dispensing Proof Of Concept.mp4" type="video/mp4">
                     </video>
+                    <div class="video-caption">
+                        <p>Proof of Concept - Epoxy Dispensing</p>
+                    </div>
                 </div>
             
             
@@ -520,6 +592,10 @@
                 <p>Welcome to my corner of the world wide web. You've landed on the digital archive of Satinee Ghiulezian—a collection of things I've made (including this site), sometimes using nothing but paperclips and rubber bands. Thank you for letting me share with you the delight of creating something out of nothing.</p>
                 <p><strong>Email:</strong> <a href="mailto:sat@satghi.com">sat@satghi.com</a></p>
                 <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/satenigghiulezian" target="_blank">linkedin.com/in/satenigghiulezian</a></p>
+                <div class="contact-logo">
+                    <img src="images/favicon-16x16.png" alt="Satinee Ghiulezian">
+                </div>
+
             </div>
         </div>
 
@@ -528,5 +604,32 @@
     <footer>
         <p>&copy; 2026 Satinee Ghiulezian | <a href="index.html">Back to Home 🏰</a></p>
     </footer>
+
+    <script>
+    // Image click to expand
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.project-grid img');
+        
+        // Create modal
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        const modalImg = document.createElement('img');
+        modal.appendChild(modalImg);
+        document.body.appendChild(modal);
+        
+        // Click image to open
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+            });
+        });
+        
+        // Click modal to close
+        modal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    });
+    </script>
 </body>
 </html>
